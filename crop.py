@@ -56,6 +56,7 @@ while True:
         humidity = float(input("Humidity (%): "))
         ph = float(input("pH value: "))
         rainfall = float(input("Rainfall (mm): "))
+
         user_data = np.array([[N, P, K, temperature, humidity, ph, rainfall]])
         prediction = model.predict(user_data)
 
@@ -63,9 +64,11 @@ while True:
 
     except ValueError:
         print("\nPlease enter numeric values only.")
-    continue
+        continue
 
+    # ✅ ASK USER HERE (outside try-except)
     again = input("\nDo you want to predict again? (yes/no): ").lower()
+
     if again != "yes":
         print("\nExiting Crop Recommendation System")
         break
